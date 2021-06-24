@@ -67,11 +67,10 @@ async function updateGist(stats) {
             ['🚩', `Issues`, humanize(stats.totalIssues)],
             ['📦', `Contributed to`, humanize(stats.contributedTo)],
         ]
-            .map((content) => {
-                let line = `${content[1]}:${content[2]}`;
-                line = line.replace(':', ':' + ' '.repeat(48 - line.length));
-                line = `${content[0]} ${line}`;
-                return line;
+            .map(([icon, label, value]) => {
+                const line = `${icon}  ${label} `
+                const pad = ' '.repeat(48 - line.length - value.length)
+                return `${line}${pad}${value}`
             })
             .join('\n') + '\n';
 
