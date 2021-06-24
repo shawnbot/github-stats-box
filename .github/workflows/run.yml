@@ -16,8 +16,7 @@ jobs:
             - run: npm ci
             - run: node index.js
               env:
-                  GH_TOKEN: ${{ github.token }}
-                  # Edit the following environment variables
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
                   GIST_ID: 3e8eac4896a510123551adae69606933 # The ID portion from your gist url
                   ALL_COMMITS: true # If `true` it will count all commits, if `false` it will count your last year commits
                   K_FORMAT: false # If `true`, large numbers will be formatted with a "k", for example "1.5k"
